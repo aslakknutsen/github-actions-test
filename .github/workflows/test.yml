@@ -1,0 +1,20 @@
+name: Simple test workflow
+
+on: pull_request
+
+jobs:
+  test:
+    name: Simple test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: |
+          echo wee
+        shell: bash
+      - name: Checkout PR branch
+        id: checkout
+        uses: actions/github-script@v3.1
+        with:
+          github-token: afsa
+          script: |
+            core.setOutput("pr_head", "");
